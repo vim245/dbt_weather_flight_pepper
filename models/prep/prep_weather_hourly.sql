@@ -23,3 +23,6 @@ add_more_features AS (
             WHEN time BETWEEN '18:00:00' AND '23:59:00' THEN 'evening'
         END) AS day_part
     FROM add_features
+)
+SELECT *
+FROM add_more_features
