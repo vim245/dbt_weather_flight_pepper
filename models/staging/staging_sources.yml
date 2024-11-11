@@ -2,13 +2,13 @@
 version: 2
 sources:
 
-- name: staging_weather
+- name: weather_data
   schema: s_vimalabhandari
   tables:
     - name: weather_daily_raw
     - name: weather_hourly_raw
 
-- name: staging_flights
+- name: flights_data
   schema: public
   tables:
     - name: flights
