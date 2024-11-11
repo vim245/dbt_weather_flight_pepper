@@ -24,3 +24,6 @@ WITH hourly_raw AS (
 )
 SELECT * 
 FROM hourly_data
+
+
+
