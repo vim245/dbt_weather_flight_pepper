@@ -7,7 +7,7 @@ SELECT origin AS faa,
         COUNT(dep_time) AS dep_n_flights,
         COUNT(DISTINCT tail_number) AS dep_nunique_tails,
         COUNT(DISTINCT airline) AS dep_nunique_airlines
-FROM prep_flights
+FROM {{ref('prep_flights')}}
 GROUP BY origin
 ),
 
@@ -20,7 +20,7 @@ SELECT dest AS faa,
         COUNT(arr_time) AS arr_n_flights,
         COUNT(DISTINCT tail_number) AS arr_nunique_tails,
         COUNT(DISTINCT airline) AS arr_nunique_arilines
-FROM prep_flights
+FROM {{ref('prep_flights')}}
 GROUP BY dest
 ),
 total_stats AS (
@@ -40,5 +40,5 @@ ap.country,
 ap.name,
 t.* 
 FROM total_stats t
-LEFT JOIN prep_airports ap
+LEFT JOIN {{ref('prep_airports')}} ap
 USING (faa)
