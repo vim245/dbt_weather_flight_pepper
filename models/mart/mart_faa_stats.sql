@@ -10,7 +10,7 @@ SELECT origin AS faa,
 FROM prep_flights
 GROUP BY origin
 ),
------this is going to be another CTE step
+
 arrivals AS (
 SELECT dest AS faa,
         COUNT(*) AS nunique_from, 
@@ -36,9 +36,9 @@ JOIN arrivals a
 ON d.faa = a.faa
 )
 SELECT ap.city, 
-    ap.country, 
-    ap.name,
-    t.* 
+ap.country, 
+ap.name,
+t.* 
 FROM total_stats t
 LEFT JOIN prep_airports ap
 USING (faa)
